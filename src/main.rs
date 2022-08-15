@@ -1,6 +1,7 @@
 use std::io::stdin;
 
 mod parser;
+mod token;
 
 fn main() {
     // main interpreter loop
@@ -11,6 +12,7 @@ fn main() {
         stdin()
             .read_line(&mut user_input)
             .expect("Input not provided");
-        parser::parse(user_input.trim());
+        println!("{:?}", token::tokenize(user_input.trim()));
+        // parser::parse(user_input.trim());
     }
 }
