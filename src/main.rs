@@ -12,7 +12,7 @@ fn main() {
         stdin()
             .read_line(&mut user_input)
             .expect("Input not provided");
-        println!("{:?}", token::tokenize(user_input.trim()));
-        // parser::parse(user_input.trim());
+        let tokens = token::tokenize(user_input.trim());
+        parser::parse(tokens);
     }
 }

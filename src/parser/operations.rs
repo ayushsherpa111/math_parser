@@ -1,18 +1,23 @@
-pub trait Add {
-    fn action(&self) -> i64;
+#[derive(Debug)]
+pub enum Operand{
+    Expr(Expression)
 }
 
-pub struct Operation {
-    operand_a : i64,
-    operand_b : i64,
+
+#[derive(Debug)]
+pub struct Term {
+    pub signed: bool,
+
+    pub const_divisor: u128,
+    pub const_divident: u128,
+
+    pub divisor: Vec<Operand>,
+    pub dividend: Vec<Operand>
 }
 
-impl Add for Operation {
-    fn action(&self) -> i64 {
-        self.operand_a + self.operand_b
-    }
-}
-
-pub fn new(operand_a: i64, operand_b: i64) -> Operation {
-    Operation { operand_a , operand_b }
+// 2+2/5
+// + and - separates an expression into terms
+#[derive(Debug)]
+pub struct Expression{
+    pub terms: Vec<Term>
 }

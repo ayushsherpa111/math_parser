@@ -1,6 +1,6 @@
 #[derive(Debug)]
 pub enum Tokens{
-    Number,
+    Number(u128),
     Add,
     Substract,
     Divide,
